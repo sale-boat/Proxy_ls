@@ -1,10 +1,10 @@
 config:
-  target: 'http://localhost:80'
+  target: 'http://localhost:3000'
   http:
     pool: 10
   phases:
     - duration: 60
-      arrivalRate: 6000
+      arrivalRate: 100
   defaults:
     headers:
       x-my-service-auth: '987401838271002188298567'
@@ -12,4 +12,4 @@ scenarios:
   - name: 'GET all products'
     flow:
       - get:
-          url: '/product/{{$randomNumber(2, 20000000)}}'
+          url: '/{{$randomNumber(2, 20000000)}}/2019'
