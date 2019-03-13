@@ -21,8 +21,8 @@ app.get('/:productid/:userid', (req, res) => {
   res.sendFile(`${__dirname}/public/index.html`);
 });
 
-app.post('/api/cart/:productid/:userid', (req, res) => {
-  res.sendFile(`${__dirname}/public/index.html`);
+app.post('/:productid/:userid', (req, res) => {
+    res.sendFile(`${__dirname}/public/index.html`);
 });
 
 app.use('/:productid/:userid', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
@@ -31,4 +31,4 @@ app.get('*', (req, res) => {
   res.redirect('');
 })
 
-app.listen(80);
+app.listen(8080);
