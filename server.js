@@ -25,10 +25,12 @@ app.post('/:productid/:userid', (req, res) => {
     res.sendFile(`${__dirname}/public/index.html`);
 });
 
-app.use('/api/:productid/:userid', proxy({ target: 'http://localhost:3002' }));
+app.use('/:productid/:userid', proxy({ target: 'http://ec2-18-209-30-138.compute-1.amazonaws.com/' }));
+app.use('/:productid/:userid', proxy({ target: 'http://ec2-54-219-186-15.us-west-1.compute.amazonaws.com/' }));
+
 
 app.get('*', (req, res) => {
-  res.redirect('/51/2019');
+  res.redirect('/5');
 })
 
-app.listen(3000);
+app.listen(8080);
