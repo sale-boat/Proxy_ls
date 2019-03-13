@@ -17,7 +17,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use('/files', express.static(`${__dirname}/public`));
 
 
-app.get('/product/:id', (req, res) => {
+app.get('/:productid/:userid', (req, res) => {
   res.sendFile(`${__dirname}/public/index.html`);
 });
 
@@ -25,10 +25,10 @@ app.post('/api/cart/:productid/:userid', (req, res) => {
   res.sendFile(`${__dirname}/public/index.html`);
 });
 
-app.use('/api/product/:id', proxy({ target: 'http://localhost:3002' }));
+app.use('/:productid/:userid', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
 
 app.get('*', (req, res) => {
-  res.redirect('/product/2019');
+  res.redirect('');
 })
 
 app.listen(80);
