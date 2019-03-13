@@ -28,7 +28,7 @@ app.post('/:productid/:userid', (req, res) => {
 app.use('/:productid/:userid', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
 
 app.get('*', (req, res) => {
-  res.redirect('');
+  res.redirect('/30/2019');
 })
 
 app.listen(8080);
