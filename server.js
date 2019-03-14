@@ -16,7 +16,7 @@ app.use(compression());
 
 app.use('/files', express.static(`${__dirname}/public`));
 
-app.get('/loaderio-58010fb022efc3e49cdd6a779da2e5f4.txt', (req, res) => {
+app.get('/loaderio-46789894de2a20b1adcd3a76de937c9e.txt', (req, res) => {
   res.sendFile(`${__dirname}/public/loaderio-46789894de2a20b1adcd3a76de937c9e.txt`);
 })
 
