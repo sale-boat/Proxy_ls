@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use(compression());
 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 app.use('/files', express.static(`${__dirname}/public`));
 
@@ -25,7 +25,7 @@ app.post('/:productid/:userid', (req, res) => {
     res.sendFile(`${__dirname}/public/index.html`);
 });
 
-app.use('/:productid/:userid', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
+app.use('/api/:productid/:userid', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
 
 app.get('*', (req, res) => {
   res.redirect('/30/2019');
