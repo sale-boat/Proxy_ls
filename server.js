@@ -16,6 +16,9 @@ app.use(compression());
 
 app.use('/files', express.static(`${__dirname}/public`));
 
+app.get('/loaderio-58010fb022efc3e49cdd6a779da2e5f4.txt', (req, res) => {
+  res.sendFile(`${__dirname}/public/loaderio-46789894de2a20b1adcd3a76de937c9e.txt`);
+})
 
 app.get('/:productid/:userid', (req, res) => {
   res.sendFile(`${__dirname}/public/index.html`);
@@ -25,10 +28,10 @@ app.post('/:productid/:userid', (req, res) => {
     res.sendFile(`${__dirname}/public/index.html`);
 });
 
-app.use('/api/**', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
+app.use('/:productid/:userid', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
 
-app.get('*', (req, res) => {
-  res.redirect('/30/2019');
+app.get('*', (req, res) => { //redirect is #1 reason for loader io not varifying the token
+  res.redirect('/1/2019');
 })
 
 app.listen(3000);
