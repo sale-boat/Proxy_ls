@@ -25,7 +25,7 @@ app.post('/:productid/:userid', (req, res) => {
     res.sendFile(`${__dirname}/public/index.html`);
 });
 
-app.use('/api/:productid/:userid', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
+app.use('/api/**', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
 
 app.get('*', (req, res) => {
   res.redirect('/30/2019');
