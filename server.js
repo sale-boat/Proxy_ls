@@ -31,7 +31,7 @@ app.post('/:productid/:userid', (req, res) => {
 app.use('/api/:productid/', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
 
 app.get('*', (req, res) => { //redirect is #1 reason for loader io not varifying the token
-  res.redirect('/2/2019');
+  res.redirect('/2/');
 })
 
 app.listen(3000);
