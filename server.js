@@ -28,10 +28,24 @@ app.post('/:productid/:userid', (req, res) => {
     res.sendFile(`${__dirname}/public/index.html`);
 });
 
-app.use('/api/:productid/', proxy({ target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com' }));
+app.use('/api/reviews', proxy({
+  target: 'http://ec2-3-90-53-108.compute-1.amazonaws.com'
+}));
+
+app.use('/api/related', proxy({
+  target: 'http://ec2-54-153-105-133.us-west-1.compute.amazonaws.com'
+}));
+
+app.use('/api/products', proxy({
+  target: 'http://ec2-54-198-94-221.compute-1.amazonaws.com'
+}));
+
+app.use('/api', proxy({
+  target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com'
+}));
 
 app.get('*', (req, res) => { //redirect is #1 reason for loader io not varifying the token
-  res.redirect('/2/');
+  res.redirect('/1');
 })
 
-app.listen(3000);
+app.listen(80);
