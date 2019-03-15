@@ -37,11 +37,11 @@ app.use('/api/related', proxy({
 }));
 
 app.use('/api/products', proxy({
-  target: 'http://ec2-54-198-94-221.compute-1.amazonaws.com'
+  target: 'http://ec2-3-94-89-165.compute-1.amazonaws.com'
 }));
 
 app.use('/api', proxy({
-  target: 'http://ec2-54-175-87-50.compute-1.amazonaws.com'
+  target: 'http://ec2-54-211-88-14.compute-1.amazonaws.com'
 }));
 
 app.get('*', (req, res) => { //redirect is #1 reason for loader io not varifying the token
