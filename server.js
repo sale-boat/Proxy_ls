@@ -20,7 +20,7 @@ app.get('/loaderio-46789894de2a20b1adcd3a76de937c9e.txt', (req, res) => {
   res.sendFile(`${__dirname}/public/loaderio-46789894de2a20b1adcd3a76de937c9e.txt`);
 })
 
-app.get('/:productid/:userid', (req, res) => {
+app.get('/:productid/', (req, res) => {
   res.sendFile(`${__dirname}/public/index.html`);
 });
 
