@@ -48,4 +48,4 @@ app.get('*', (req, res) => { //redirect is #1 reason for loader io not varifying
   res.redirect('/1');
 })
 
-app.listen(80);
+app.listen(3000);
